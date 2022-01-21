@@ -8,8 +8,6 @@ services:
       context: .
       dockerfile: ./Dockerfile
     container_name: djangovul
-    volumes:
-      - ./:/vulnpy
     environment:
       DEBUG: 1
       AUTO_CREATE_PROJECT: 1
