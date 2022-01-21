@@ -18,8 +18,8 @@ jobs:
       - name: Clone Vul Repository
         uses: actions/checkout@v2
         with:
-          repository: jinghao1/DongTai-agent-python
-          ref: main
+          repository: HXSecurity/DongTai-agent-python
+          ref: master
           path: DongTai-agent-python
       - name: Prepare Agent Config
         shell: python
