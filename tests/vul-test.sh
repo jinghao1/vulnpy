@@ -1,7 +1,7 @@
 #!/bin/bash
 FQDN="http://127.0.0.1:3020"
 
-curl -L "$FQDN/vulnpy/cmdi/os-system/?user_input=ls"
+curl -L -H "Expect:" "$FQDN/vulnpy/cmdi/os-system/?user_input=ls"
 curl -L "$FQDN/vulnpy/deserialization/pickle-load/?user_input=data"
 curl -L "$FQDN/vulnpy/hash/hashlib-md5/?user_input=data"
 curl -L "$FQDN/vulnpy/hash/hashlib-sha1/?user_input=data"
