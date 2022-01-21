@@ -15,12 +15,12 @@ jobs:
     steps:
       - name: Run Vul Container
         env:
-          PROJECT_VERSION: 'v1.0.${{ github.run_id }}-dt'
+          PROJECT_VERSION: 'v1.2.${{ github.run_id }}'
         run: |
-          cd /vulnpy
+          cd {{ github.run_id }}/vulnpy
           docker-compose up -d
 
       - name: Run Vul test
         run: |
-          bash /vulnpy/tests/vul-test.sh
+          bash {{ github.run_id }}/vulnpy/tests/vul-test.sh
 
