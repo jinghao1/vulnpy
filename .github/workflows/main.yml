@@ -15,7 +15,12 @@ jobs:
     steps:
       - name: Clone Repository
         uses: actions/checkout@v2
-
+      - name: Clone Vul Repository
+        uses: actions/checkout@v2
+        with:
+          repository: jinghao1/DongTai-agent-python
+          ref: main
+          path: DongTai-agent-python
       - name: Prepare Agent Config
         shell: python
         run: |
