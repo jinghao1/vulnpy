@@ -13,18 +13,20 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Clone Repository
+        uses: actions/checkout@v2
       - name: Run Vul Container
         env:
           PROJECT_VERSION: 'v1.2.${{ github.run_id }}'
         run: |
           pwd
-          cd ${{ github.workspace }}
+          cd ${{ github.workspace }}/vulnpy
           ls
           docker-compose up -d
 
       - name: Run Vul test
         run: |
           curl --fail --retry-delay 10 --retry 30 --retry-connrefused http://127.0.0.1:3020/vulnpy/cmdi/os-system/?user_input=ls
-          bash ${{ github.workspace }}/tests/vul-test.sh http://127.0.0.1:3020
+          bash ${{ github.workspace }}/vulnpy/tests/vul-test.sh http://127.0.0.1:3020
 
 
