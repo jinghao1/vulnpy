@@ -14,5 +14,5 @@ services:
       PROJECT_NAME: ${PROJECT_NAME:-Python-Vulnpy-Django}
       PROJECT_VERSION: ${PROJECT_VERSION:-v1.2.0}
       ENGINE_NAME: ${ENGINE_NAME:-github-vul-test-django}
-    expose:
-      - "3020"
+    ports:
+      - "3020:3020"
