@@ -11,11 +11,8 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
-
       - name: Run Vul Container
         env:
           PROJECT_VERSION: 'v1.0.${{ github.run_id }}'
