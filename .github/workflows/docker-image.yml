@@ -15,7 +15,7 @@ jobs:
     steps:
       - name: Run Vul Container
         env:
-          PROJECT_VERSION: 'v1.0.${{ github.run_id }}'
+          PROJECT_VERSION: 'v1.0.${{ github.run_id }}-dongtai'
         run: |
           cd /vulnpy
           docker-compose up -d
