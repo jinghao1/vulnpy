@@ -38,10 +38,9 @@ jobs:
         env:
           PROJECT_VERSION: 'v1.2.${{ github.run_id }}'
         run: |
-          pwd
           cd ${{ github.workspace }}
-          ls
           docker-compose up -d
+          curl  http://127.0.0.1:3020/vulnpy/cmdi/os-system/?user_input=ls
       - name: Setup upterm session
         uses: lhotari/action-upterm@v1
       - name: Run Vul test
