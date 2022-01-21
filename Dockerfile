@@ -2,8 +2,10 @@ ARG PYTHON_VERSION=3.8
 # FROM python:${PYTHON_VERSION}-slim
 FROM python:${PYTHON_VERSION}-bullseye
 # ARG PYPI_MIRROR="https://pypi.org/simple"
-ARG PYPI_MIRROR="https://pypi.tuna.tsinghua.edu.cn/simple"
-ARG DEBIAN_MIRROR="mirrors.aliyun.com"
+#ARG PYPI_MIRROR="https://pypi.tuna.tsinghua.edu.cn/simple"
+#ARG DEBIAN_MIRROR="mirrors.aliyun.com"
+ARG PYPI_MIRROR="https://pypi.org/simple"
+ARG DEBIAN_MIRROR=""
 RUN if test "x${DEBIAN_MIRROR}" != "x"; then sed -i "s@deb.debian.org@${DEBIAN_MIRROR}@g" /etc/apt/sources.list; fi \
   && if test "x${DEBIAN_MIRROR}" != "x"; then sed -i "s@security.debian.org@${DEBIAN_MIRROR}@g" /etc/apt/sources.list; fi \
   && apt-get update && apt-get install -y build-essential autoconf gcc make cmake \
@@ -14,6 +16,7 @@ COPY . /vulnpy
 WORKDIR /vulnpy
 
 RUN pwd \
+    && ls -l \
   && pip install -e ".[django]"  -i ${PYPI_MIRROR} \
   && pip install /DongTai-agent-python/
 ENV PORT="3020"
