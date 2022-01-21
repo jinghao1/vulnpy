@@ -18,8 +18,8 @@ jobs:
           PROJECT_VERSION: 'v1.2.${{ github.run_id }}'
         run: |
           pwd
-          ls
           cd ${{ github.workspace }}
+          ls
           docker-compose up -d
 
       - name: Run Vul test
