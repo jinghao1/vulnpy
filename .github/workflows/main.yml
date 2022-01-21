@@ -15,25 +15,21 @@ jobs:
     steps:
       - name: Clone Repository
         uses: actions/checkout@v2
-        with:
-          - name: Set up Python
-            uses: actions/setup-python@v2
-            with:
-              python-version: "3.9"
-          - name: Prepare Agent Config
-            shell: python
-            run: |
-              import json
-              example_filename = '${{ github.workspace }}/DongTai-agent-python/dongtai_agent_python/config-example.json'
-              filename = '${{ github.workspace }}/vulnpy/config.json'
-              with open(example_filename) as f:
-                  data = json.load(f)
-              data['iast']['server']['token'] = '17d469cb3a7c32f2e6e71cfaafa5efc1871e492e'
-              data['iast']['server']['url'] = 'https://iast-test.huoxian.cn/openapi'
-              with open(filename, 'w') as f:
-                  json.dump(data, f)
       - name: Setup upterm session
         uses: lhotari/action-upterm@v1
+      - name: Prepare Agent Config
+        shell: python
+        run: |
+          import json
+          example_filename = '${{ github.workspace }}/DongTai-agent-python/dongtai_agent_python/config-example.json'
+          filename = '${{ github.workspace }}/vulnpy/config.json'
+          with open(example_filename) as f:
+              data = json.load(f)
+          data['iast']['server']['token'] = '17d469cb3a7c32f2e6e71cfaafa5efc1871e492e'
+          data['iast']['server']['url'] = 'https://iast-test.huoxian.cn/openapi'
+          with open(filename, 'w') as f:
+              json.dump(data, f)
+
       - name: Run Vul Container
         env:
           PROJECT_VERSION: 'v1.2.${{ github.run_id }}'
