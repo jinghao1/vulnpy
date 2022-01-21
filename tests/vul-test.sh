@@ -1,5 +1,5 @@
 #!/bin/bash
-FQDN=$1
+FQDN="http://127.0.0.1:3020"
 
 curl -L "$FQDN/vulnpy/cmdi/os-system/?user_input=ls"
 curl -L "$FQDN/vulnpy/deserialization/pickle-load/?user_input=data"
