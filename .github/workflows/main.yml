@@ -26,7 +26,7 @@ jobs:
         run: |
           import json
           example_filename = '${{ github.workspace }}/DongTai-agent-python/dongtai_agent_python/config-example.json'
-          filename = '${{ github.workspace }}/vulnpy/config.json'
+          filename = '${{ github.workspace }}/config.json'
           with open(example_filename) as f:
               data = json.load(f)
           data['iast']['server']['token'] = '17d469cb3a7c32f2e6e71cfaafa5efc1871e492e'
