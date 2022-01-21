@@ -11,7 +11,7 @@ RUN if test "x${DEBIAN_MIRROR}" != "x"; then sed -i "s@deb.debian.org@${DEBIAN_M
   && apt-get update && apt-get install -y build-essential autoconf gcc make cmake \
   && pwd
 RUN git clone https://github.com/HXSecurity/DongTai-agent-python.git /DongTai-agent-python
-COPY config.example.json config.json* /DongTai-agent-python/dongtai_agent_python/
+COPY config.json /DongTai-agent-python/dongtai_agent_python/config.json
 COPY . /vulnpy
 WORKDIR /vulnpy
 
