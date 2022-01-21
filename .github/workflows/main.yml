@@ -42,7 +42,6 @@ jobs:
           cd ${{ github.workspace }}
           ls
           docker-compose up -d
-          docker-compose logs -f
 
       - name: Run Vul test
         run: |
