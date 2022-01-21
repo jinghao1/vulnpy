@@ -1,5 +1,5 @@
 #!/bin/bash
-FQDN=`terraform output fqdn | tr -d '"'`
+FQDN=$1
 
 curl -L "$FQDN/vulnpy/cmdi/os-system/?user_input=ls"
 curl -L "$FQDN/vulnpy/deserialization/pickle-load/?user_input=data"

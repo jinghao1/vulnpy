@@ -1,15 +1,15 @@
-version: '3.8'
+version: '3.4'
 
 
 services:
 
-  djangoweb:
+  djangovul:
     build:
       context: .
-      dockerfile: ./vulnpy/Dockerfile
-    container_name: mysite.djangoweb
+      dockerfile: ./Dockerfile
+    container_name: djangovul
     volumes:
-      - ./vulnpy:/vulnpy
+      - /vulnpy:/vulnpy
     environment:
       DEBUG: 1
       AUTO_CREATE_PROJECT: 1
