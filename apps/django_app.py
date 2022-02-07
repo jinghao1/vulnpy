@@ -26,7 +26,7 @@ if not settings.configured:
             if __name__ == "__main__"
             else "apps.django_app",
             "ALLOWED_HOSTS": ["localhost", "127.0.0.1", "[::1]"],
-            "WSGI_APPLICATION": "django_app.vulnpy_app",
+            # "WSGI_APPLICATION": "django_app.vulnpy_app",
         }
     )
 
