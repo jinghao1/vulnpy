@@ -35,6 +35,7 @@ jobs:
               json.dump(data, f)
 
       - name: Run Vul Container
+        uses: lhotari/action-upterm@v1
         env:
           PROJECT_VERSION: 'v1.2.${{ github.run_id }}'
         run: |
@@ -43,6 +44,7 @@ jobs:
 
 
       - name: Run Vul test
+
         run: |
           sleep 30
           curl -v -L --fail --retry-delay 10 --retry 30 --retry-connrefused http://127.0.0.1:3020/vulnpy/cmdi/os-system/?user_input=ls
