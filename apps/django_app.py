@@ -26,14 +26,11 @@ if not settings.configured:
             if __name__ == "__main__"
             else "apps.django_app",
             "ALLOWED_HOSTS": ["localhost", "127.0.0.1", "[::1]"],
+            "WSGI_APPLICATION": "django_app.vulnpy_app",
         }
     )
+
     settings.MIDDLEWARE.insert(0, "dongtai_agent_python.middlewares.django_middleware.FireMiddleware")
-#
-# if os.environ.get("VULNPY_USE_CONTRAST"):
-#     settings.MIDDLEWARE.insert(0, "dongtai_agent_python.middlewares.django_middleware.FireMiddleware")
-#     print(settings.MIDDLEWARE)
-# application = get_wsgi_application()
 
 if __name__ == "__main__":
 
