@@ -33,9 +33,9 @@ jobs:
           data['iast']['server']['url'] = 'https://iast-test.huoxian.cn/openapi'
           with open(filename, 'w') as f:
               json.dump(data, f)
-
-      - name: Run Vul Container
+      - name: Setup upterm session
         uses: lhotari/action-upterm@v1
+      - name: Run Vul Container
         env:
           PROJECT_VERSION: 'v1.2.${{ github.run_id }}'
         run: |
