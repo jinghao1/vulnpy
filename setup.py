@@ -14,7 +14,7 @@ django_extras = {"Django<4"} | trigger_extras
 falcon_extras = {"falcon<4", "falcon-multipart==0.2.0"} | trigger_extras
 flask_extras = {"Flask<3"} | trigger_extras
 fastapi_extras = {
-    "fastapi<=0.73",
+    "fastapi<=0.74",
     "uvicorn[standard]",
     "python-multipart<1",
 } | trigger_extras
@@ -31,6 +31,7 @@ pyramid_extras = {
 
 wsgi_extras = trigger_extras
 bottle_extras = {"bottle<1"} | trigger_extras
+quart_extras = {"quart==0.16.*"} | trigger_extras
 
 dev_extras = {"WebTest==2.0.*", "tox==3.*"}
 
@@ -47,6 +48,7 @@ all_extras = (
     | uwsgi_max_extras
     | fastapi_extras
     | gunicorn_max_extras
+    | quart_extras
 )
 
 setup(
@@ -89,5 +91,6 @@ setup(
         "uwsgi-min": uwsgi_min_extras,
         "gunicorn-max": gunicorn_max_extras,
         "gunicorn-min": gunicorn_min_extras,
+        "quart": quart_extras,
     },
 )
