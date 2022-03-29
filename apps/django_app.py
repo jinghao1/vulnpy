@@ -30,7 +30,7 @@ if not settings.configured:
         }
     )
 
-    settings.MIDDLEWARE.insert(0, "dongtai_agent_python.middlewares.django_middleware.FireMiddleware")
+    # settings.MIDDLEWARE.insert(0, "dongtai_agent_python.middlewares.django_middleware.FireMiddleware")
 
 if __name__ == "__main__":
 

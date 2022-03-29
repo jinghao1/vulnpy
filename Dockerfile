@@ -18,7 +18,7 @@ WORKDIR /vulnpy
 RUN pwd \
     && ls -l \
   && pip install -e ".[django]"  -i ${PYPI_MIRROR} \
-  && pip install /DongTai-agent-python/
+#  && pip install /DongTai-agent-python/
 ENV PORT="3020"
 ENV FRAMEWORK="django"
 ENV HOST="0.0.0.0"
