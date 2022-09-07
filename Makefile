@@ -18,6 +18,12 @@ falcon-uwsgi: templates
 falcon-gunicorn: templates
 	gunicorn $(GUNICORN_OPTIONS) apps.falcon_app:app
 
+falcon-asgi: # falcon has no default server, so we use uvicorn
+	$(error Falcon ASGI requires a production webserver - try `make falcon-uvicorn`)
+
+falcon-uvicorn: templates
+	uvicorn apps.falcon_asgi_app:app --host=$(HOST) --port=$(PORT)
+
 flask: templates
 	FLASK_APP=apps/flask_app.py flask run --host=$(HOST) --port=$(PORT)
 
@@ -47,6 +53,12 @@ django-uwsgi: templates
 
 django-gunicorn: templates
 	gunicorn $(GUNICORN_OPTIONS) apps.django_app:vulnpy_app
+
+django-asgi: # django has no default server, so we use uvicorn
+	$(error Django ASGI  requires a production webserver - try `make django-uvicorn`)
+
+django-uvicorn: templates
+	uvicorn apps.django_asgi_app:vulnpy_app --host $(HOST) --port $(PORT)
 
 wsgi: templates
 	python apps/wsgi_app.py $(HOST) $(PORT)
